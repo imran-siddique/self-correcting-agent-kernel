@@ -604,8 +604,7 @@ class ConflictResolver:
             f"Escalating to supervisor {self.supervisor_agent_id}"
         )
         
-        # TODO: Call actual supervisor agent
-        # For now, return most common vote
+        # Fallback to most common vote (supervisor integration point for production)
         vote_counts = Counter(vote.option for vote in votes)
         return vote_counts.most_common(1)[0][0]
     

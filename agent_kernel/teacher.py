@@ -69,11 +69,7 @@ async def diagnose_failure(prompt, failed_response, tool_trace):
     Output Format: JSON {{ "cause": "...", "lesson_patch": "..." }}
     """
     
-    # In production, this would call the "Expensive" Model only on failure
-    # For this reference implementation, we simulate the response
-    # diagnosis = await llm_client.generate(model="o1-preview", prompt=teacher_prompt)
-    
-    # Simulated diagnosis for reference
+    # Simulated diagnosis (production: integrate with LLM client)
     diagnosis = {
         "cause": "Agent gave up without exhaustive search",
         "lesson_patch": "Before reporting 'not found', check all data sources including archived partitions"

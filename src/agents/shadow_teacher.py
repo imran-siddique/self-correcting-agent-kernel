@@ -104,16 +104,8 @@ async def diagnose_failure(
     Output Format: JSON {{ "cause": "...", "lesson_patch": "...", "cognitive_glitch": "..." }}
     """
     
-    # In production, this would call the "Expensive" Model only on failure
-    # Example:
-    # diagnosis_raw = await llm_client.generate(
-    #     model="o1-preview",  # or "claude-3-5-sonnet-20241022"
-    #     prompt=teacher_prompt,
-    #     temperature=0.7,
-    #     max_tokens=500
-    # )
-    
-    # For demonstration, simulate the response based on pattern analysis
+    # Simulate teacher diagnosis based on pattern analysis
+    # Production: integrate with llm_client.generate(model="o1-preview", ...)
     diagnosis = _simulate_teacher_diagnosis(safe_prompt, safe_response, safe_trace, context)
     
     logger.info(f"📊 Diagnosis: {diagnosis['cognitive_glitch']}")
